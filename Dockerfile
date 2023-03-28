@@ -18,16 +18,17 @@ ARG HTTPD_VERSION
 FROM httpd:${HTTPD_VERSION}-bullseye
 
 ARG HTTPD_VERSION
+ARG MOD_VERSION
 
 LABEL description="Apache2 HTTPd + OIDC auth module (OpenID Connect)"
 LABEL maintainer="Thorsten Ludewig <t.ludewig@gmail.com>"
-LABEL version=${HTTPD_VERSION}
+LABEL version="${HTTPD_VERSION}-${MOD_VERSION}"
 LABEL org.opencontainers.image.authors="Thorsten Ludewig <t.ludewig@gmail.com>"
 LABEL org.opencontainers.image.source="https://github.com/thorsten-l/apache2-httpd-oidc"
 LABEL org.opencontainers.image.documentation="https://github.com/thorsten-l/apache2-httpd-oidc"
 LABEL org.opencontainers.image.description="Apache2 HTTPd + OIDC auth module (OpenID Connect)"
 LABEL org.opencontainers.image.license="Apache-2.0"
-LABEL org.opencontainers.image.version=${HTTPD_VERSION}
+LABEL org.opencontainers.image.version="${HTTPD_VERSION}-${MOD_VERSION}"
 
 COPY entrypoint.sh /entrypoint.sh
 COPY --from=builder /usr/local/apache2/modules/mod_auth_openidc.so /usr/local/apache2/modules/mod_auth_openidc.so
