@@ -3,7 +3,7 @@ version: '3.9'
 services:
 
   httpd:
-    image: apache2-httpd-oidc:latest
+    image: ghcr.io/thorsten-l/apache2-httpd-oidc:latest
     container_name: httpd
     restart: always
     volumes:
